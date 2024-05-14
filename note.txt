@@ -1,0 +1,137 @@
+Server Creation
+--------------
+1)- Create a new folder for server creation which is independed of the ui
+
+Technology for server creation is node
+Express - real server - if its using express then its express - for mannual 
+json server - library for creating fake server
+
+npm - node modules
+    - package.json
+    - 
+
+2)- Create package.json in node server  
+    command -) npm init (node server ayi marem cheyum package.json kitem cheyum) // npm init -y for adding default requirements
+
+    entry point is index.jsom
+
+3)- install json server (if it using express install express)
+    command -) npm i json-server@0.17.4 (stable version latest are alpha not stable)
+
+
+    api request
+    --------
+    add video - (title,coverimgurl,videourl) 
+                  api had 2 part head body
+                  data send through body in json format using )post method
+                  head includes secret data
+   
+    access vedio - )get method
+
+    add new category - )post send category name inside body
+    
+    access category - )get 
+
+    drag and drop - update category 
+
+    add histroy - post method (date&time title video url)
+
+    get history - get
+
+    video delete - id delete
+
+    category delete - id delete
+
+    history delete - id delete
+
+
+import  options
+-----
+    require - can use any where in the code 
+    import - should use in top 
+
+
+CORS(Cross Origin Resource Sharing)
+------------------------------------
+Library used to connect front-end with server
+command - npm i cors
+
+
+***************************************29/04**************************************
+
+Data Conversion json-js before resolving each api request
+---------------------------------------------------------
+
+Middle ware (to handle request) type of fn
+----------
+)middle wares have power to control the api request in server
+ (request handler with acces to applicants request response cycle . it is a function that holds the request objcet,the respoonse object and middle ware function .it can also send the response to the server before the request)
+
+ types :- 
+ 1) - Apllication Specific Middle ware  -> to control entire request from apllication it can be applied to that application specific
+ 2) - Routers Specific middle ware      -> to control specific request seperate requests using router specific
+
+
+
+ //for storing data i  backend we need a db in fake server json it has an .json database
+
+ //nodemon - provide automatic  recombilation/rerendering
+             to instal - npm i -g nodemon                   
+
+
+
+
+
+Add & Videos are siblings
+
+Data Sharing between siblings compon    ents
+-----------------------------------------
+
+state lifting - for communication between siblings by sharing common state and update childs
+
+
+
+/// Drag and drop events
+all evnts are target value event
+
+1) onDragStart()
+2)onDragOver()  -- wheather drop element is over div  
+3)onDrop()
+
+updatw api 
+---------
+upate method - PUT PATCH
+
+in json-server
+
+step1 : access data need to chage
+{
+    "id":1,
+    "categoryName":"trendin:,
+    "videos":[]
+}
+
+step2 : access video data to add in video array
+{
+    "id":1,
+    "title":"goat thandooru",
+    "coverImgUrl":"http//",
+    "videoUrl":"http//"
+}
+
+step3 : add video in video array in category
+{
+    "id":1,
+    "categoryName":"trendin:,
+    "videos":[
+        {
+    "id":1,
+    "title":"goat thandooru",
+    "coverImgUrl":"http//",
+    "videoUrl":"http//"
+}
+    ]
+}
+
+step4: update change data in backend
+axios.put("url/id",updated data as bodydata)
